@@ -19,7 +19,6 @@ mongoose.connect (
     },
     () =>{
         console.log(`connection with mongo is established with the ${mongoURI}`);
-
     }
 );
 
