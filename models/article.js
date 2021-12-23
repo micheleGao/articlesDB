@@ -1,22 +1,16 @@
 const mongoose = require('../db/connection')
 
-const articleSchema = new Schema(
+const Articleschema = new mongoose.Schema(
 	{
-		title: { type: String, required: true, unique: true }, //can say whether we want properties to be required or unique
-		author: { type: String, required: true },
+		title: String,
 		body: String,
-		comments: [{ body: String, commentDate: Date }], // can have arrays of objects with specific properties
-		publishDate: { type: Date, default: Date.now }, // can set defaults for properties
-		hidden: Boolean,
-		meta: {
-			// can have properties that are objects
-			votes: Number,
-			favs: Number,
-		},
+		author: String,
+		likes: { type: Number, default: 0 },
+		sponsored: { type: Boolean, default: false },
 	},
 	{ timestamps: true }
 );
 
-const articles = mongoose.model('Articles', articleSchema)
+const Articles = mongoose.model('Articles', Articleschema)
 
-module.exports = articles;
+module.exports = Articles;

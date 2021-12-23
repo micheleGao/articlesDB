@@ -10,15 +10,16 @@ const db = mongoose.connection;
 
 // connect to mongo
 
-mongoose.connect (
-    mongoURI, 
+mongoose.connect(
+    // mongoURI,
+    "mongodb://localhost:3000/Articles",
     {
         useNewUrlParser:true,
-        useUnifiedToplogy:true,
-        useCreateIndex: true,
+        useUnifiedTopology:true,
+        //useCreateIndex: true,
     },
     () =>{
-        console.log(`connection with mongo is established with the ${mongoURI}`);
+        console.log(`connection with mongo is established`);
     }
 );
 
